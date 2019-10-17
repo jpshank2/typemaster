@@ -1,6 +1,6 @@
 let $uppercase = $("#keyboard-upper-container");
 let $lowercase = $("#keyboard-lower-container");
-let sentences  = ['ten ate neite ate nee enet ite ate inet ent eate', 'Too ato too nOt enot one totA not anot tOO aNot', 'oat itain oat tain nate eate tea anne inant nean', 'itant eate anot eat nato inate eat anot tain eat', 'nee ene ate ite tent tiet ent ine ene ete ene ate'];
+let sentences  = ['Health goth art party sartorial, cornhole vinyl', 'Coloring book asymmetrical mustache, gluten free', 'Before they sold out williamsburg tilde pour over', 'Mixtape cloud bread pork belly aesthetic succulents', 'Hoodie bushwick man bun viral enamel pin butcher deep'];
 let i          = 0;
 let k          = 0;
 let count      = 0;
@@ -20,6 +20,19 @@ function type(i) {
 
 function expected(i, k) {
     $("#target-letter").text(sentences[i][k]);
+}
+
+function numOfWords() {
+    let wordCount = 0;
+    sentences.forEach((sentence) => {
+        for (let char = 0; char < sentence.length; char++) {
+            if (sentence[char] === " ") {
+                wordCount++
+            }
+        }
+        wordCount++
+    });
+    return wordCount;
 }
 
 $("body").keydown((e) => {
@@ -74,8 +87,9 @@ $("body").keydown((e) => {
                     let seconds     = (finish - start) / 1000;
                     let minutes     = seconds / 60;
                     let minAdjusted = minutes.toFixed(2);
-                    let score       = 54 / minAdjusted - 2 * mistakes;
+                    let score       = numOfWords() / minAdjusted - 2 * mistakes;
                     let final       = score.toFixed(2);
+                    alert(numOfWords());
                     alert(`You type ${final} words per minute!`);
                 }, 500);
                 $("#feedback").empty();
