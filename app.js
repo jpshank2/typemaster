@@ -43,7 +43,7 @@ $("#game-on").click(function() {
         "Between the woods and frozen lake", "The darkest evening of the year.", "He gives his harness bells a shake", "To ask if there is some mistake.", "The only other sound’s the sweep", "Of easy wind and downy flake.", "The woods are lovely, dark and deep,",
         "But I have promises to keep,", "And miles to go before I sleep,", "And miles to go before I sleep.", "Stopping by Woods on a Snowy Evening by Robert Frost"]
     ];
-    let z          = /*Math.trunc(Math.random() * sentences.length);*/ 2;
+    let z          = Math.trunc(Math.random() * sentences.length);;
     let i          = 0;
     let k          = 0;
     let count      = 0;
